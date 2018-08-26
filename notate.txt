@@ -1,1 +1,2 @@
-This is studiing in angular with metanit
+This is studiing in angular with metanit.
+File for test commit
