@@ -1,3 +1,10 @@
 <h2>Основы Angular:</h2>
 <app-components-comp></app-components-comp>
 <app-bindings-comp></app-bindings-comp>
+<br>
+<p>
+    Для ngOnChanges:
+</p>
+<input type = "text" [(ngModel)] = "lcName"/>
+<br>
+<app-lifecycle-comp [lcName] = 'lcName'></app-lifecycle-comp>
