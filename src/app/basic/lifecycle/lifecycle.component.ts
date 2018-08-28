@@ -61,15 +61,7 @@ import { Component,
 @Component({
     selector: 'app-lifecycle-comp',
     templateUrl: 'lifecycle.component.html',
-    styles: [`
-        .punkt{
-            font-size: 16px;
-            font-weight: bold;
-        }
-        p{
-            width:50%
-        }
-    `]
+    styleUrls: ['../basic-main.component.css']
 })
 export class LifeCycleComponent
 implements OnInit,

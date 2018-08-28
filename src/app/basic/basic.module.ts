@@ -7,6 +7,9 @@ import { BasicMainComponent } from './basic-main.component';
 import { ComponentsComponent } from './basic-components/components.component';
 import { BindingsComponent } from './bindings/bindings.component';
 import { LifeCycleComponent } from './lifecycle/lifecycle.component';
+import { TemplateVariablesComponent } from './template-var/template-var.component';
+import { TempateVarsChildComponent } from './template-var/temlate-var.child/template-var.child.component';
+import { ViewChildComponent } from './template-var/viewChild/viewChild.component';
 
 @NgModule({
     imports: [
@@ -17,7 +20,10 @@ import { LifeCycleComponent } from './lifecycle/lifecycle.component';
         BasicMainComponent,
         ComponentsComponent,
         BindingsComponent,
-        LifeCycleComponent
+        LifeCycleComponent,
+        TemplateVariablesComponent,
+        TempateVarsChildComponent,
+        ViewChildComponent
     ],
 
 })
