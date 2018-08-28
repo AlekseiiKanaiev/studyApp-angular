@@ -10,6 +10,7 @@ import { LifeCycleComponent } from './lifecycle/lifecycle.component';
 import { TemplateVariablesComponent } from './template-var/template-var.component';
 import { TempateVarsChildComponent } from './template-var/temlate-var.child/template-var.child.component';
 import { ViewChildComponent } from './template-var/viewChild/viewChild.component';
+import { ContentChildComponent } from './template-var/contentChild/content.child.component';
 
 @NgModule({
     imports: [
@@ -23,7 +24,8 @@ import { ViewChildComponent } from './template-var/viewChild/viewChild.component
         LifeCycleComponent,
         TemplateVariablesComponent,
         TempateVarsChildComponent,
-        ViewChildComponent
+        ViewChildComponent,
+        ContentChildComponent
     ],
 
 })
