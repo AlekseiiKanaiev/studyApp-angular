@@ -1,11 +1,22 @@
 <h2>Основы Angular:</h2>
-<app-components-comp></app-components-comp>
-<app-bindings-comp></app-bindings-comp>
-<br>
-<p>
+<ul class="nav">
+    <li routerLinkActive = "active">
+        <a routerLink = "/basic/components">Компоненты</a>
+    </li>
+    <li routerLinkActive = "active">
+        <a routerLink = "/basic/bindings">Привязки</a>
+    </li>
+    <li routerLinkActive = "active">
+        <a routerLink = "/basic/lifecycle">Жизненый цикл</a>
+    </li>
+    <li routerLinkActive = "active">
+        <a routerLink = "/basic/template-variables">Шаблонные переменные</a>
+    </li>
+</ul>
+<div>
+    <router-outlet></router-outlet>
+</div>
+<!-- <p>
     Для ngOnChanges:
 </p>
-<input type = "text" [(ngModel)] = "lcName"/>
-<br>
-<app-lifecycle-comp [lcName] = 'lcName'></app-lifecycle-comp>
-<app-template-var-comp></app-template-var-comp>
+<input type = "text" [(ngModel)] = "lcName"/> -->
