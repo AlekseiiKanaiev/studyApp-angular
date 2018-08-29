@@ -1,0 +1,98 @@
+<div>
+    <h3>ngClass:</h3>
+    <p>
+        Директива ngClass позволяет определить набор классов, 
+        которые будут применяться к элементу.
+    </p>
+    <div [ngClass]="{verdanaFont:true}">
+        <h4>Hello ngClass-dirrective</h4>
+        <p>
+            Для привязки класса к элементу применяется 
+            директива [ngClass]=verdanaFont:true. 
+            Эта директива принимает js-объект, в котором 
+            ключи - это названия классов. 
+            Этим названиям присваиваются булевые значения true
+            (если класс применяется) и false (если класс не 
+            применяется). То есть в данном случае класс 
+            verdanaFont будет применяться ко всему блоку div.
+        </p>
+        <p [ngClass]="{segoePrintFont:true}">
+            Однако в блоке div есть параграф, и мы, 
+            допустим, хотим, чтобы к этому параграфу 
+            применялся другой класс. 
+            А по умолчанию вложенный параграф унаследует 
+            стили от родительского блока div. Мы также 
+            применяем класс segoePrintFont, в котором 
+            можно переопределить унаследованные стили.
+        </p>
+    </div>
+    <p>
+        В качестве альтернативы мы можем использовать другое 
+        выражения привязки. 
+        Выражение [class.verdanaFont]="true" указывает, 
+        что класс verdanaFont будет применяться для данного 
+        элемента.
+    </p> 
+    <div [class.verdanaFont]='true'>
+        <h4>Hello again</h4>
+        <p [class.verdanaFont]='false' 
+            [class.segoePrintFont]='true'>
+            Angular 5
+        </p>
+    </div>
+</div>
+<div>
+    <h3>ngStyle:</h3>
+    <p>
+        Директива ngStyle позволяет задать набор стилей, 
+        которые применяются к элементу. 
+        В качестве значения директива принимает js-объект, 
+        в котором ключи - названия свойств CSS
+    </p>
+    <div [ngStyle]="{'font-size': '15px','font-family': 'Verdana'}">
+        <h4>Hello styled Angular</h4>
+        <p [ngStyle]="{'font-size': '16px', 'font-family':'Segoe Print'}">
+            Angular 5 is awesome
+        </p>
+    </div>
+    <p>
+        Аналогично для установки стилей можно применять 
+        свойства объекта style:
+    </p>
+    <div [style.fontSize]="'15px'" [style.fontFamily]="'Verdana'">
+        <h4>Hello again Angular 5</h4>
+        <p [style.fontSize]="'16px'" [style.fontFamily]="'Segoe Print'">
+            Angular 5 presents.
+        </p>
+    </div>
+</div>
+<div>
+    <h3>Динамическое изменение стилей:</h3>
+    <p>
+        Директивы ngClass и ngStyle позволяют устанавливать 
+        привязку к выражениям, благодаря чему мы можем 
+        динамически менять стили или классы. 
+    </p>
+    <div [ngClass]="{invisible: invisibility}">
+        <h3>Hello hide Angular 5</h3>
+        <p>
+            Выражение [ngClass]=invisible: invisibility 
+            устанавливает для класса invisible привязку к 
+            значению переменной invisibility. 
+            По нажатию на кнопку мы можем переключать это 
+            свойство, тем самым управляя видимостью блока.
+        </p>
+    </div>
+    <div>
+        <p [class.invisible]="invisibility">
+            В качестве альтернативы также можно было бы 
+            использовать другое выражение:
+            [class.invisible]="invisibility"
+        </p>
+    </div>
+    <div [style.display]="invisibility==true?'none':'block'">
+        Либо также можно было бы написать так:
+        [style.display]="invisibility==true?'block':'none'"
+    </div>
+    <button (click)='toggleClass()'>Toggle</button>
+</div>

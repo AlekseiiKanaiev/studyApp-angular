@@ -1,0 +1,14 @@
+/**В секции styles у компонента определены два класса,
+* которые устанавливают различные стилевые свойства шрифта:
+* verdanaFont и segoePrintFont. */
+.verdanaFont{
+    font-size: 15px;
+    font-family: Verdana;
+}
+.segoePrintFont{
+    font-size: 15px;
+    font-family:"'Segoe Print'";
+}
+.invisible{
+    display: none;
+}
