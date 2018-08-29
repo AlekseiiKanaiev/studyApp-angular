@@ -14,6 +14,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { MainTestComponent } from './tests/test.component';
 import { Test1Component } from './tests/test1/test1.component';
+import { BasicModule } from './basic/basic.module';
 
 /**Для каждого из компонентов мы можем определить свой маршрут.
  * определяется сам набор маршрутов
@@ -115,7 +116,8 @@ const appRoutes: Routes = [
      * Когда приложение загружается, Router выполняет
      * начальную навигацию по текущему URL, который стоит
      * в адресной строке браузера. */
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    BasicModule
   ],
   providers: [],
   bootstrap: [AppComponent]
