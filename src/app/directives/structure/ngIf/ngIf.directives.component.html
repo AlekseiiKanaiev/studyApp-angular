@@ -1,0 +1,43 @@
+<h3>ngIf:</h3>
+<p>
+    Директива ngIf позволяет удалить или, наоборот, 
+    отобразить элемент при определенном условии. 
+</p>
+<p *ngIf="condition">
+    Hello World!
+</p>
+<p *ngIf="!condition">
+    Bye, bye World!
+</p>
+<button (click) = "toggle()">Toggle</button>
+<p>
+    Начиная с версии Angular 4.0 директива ngIf обогатилась 
+    новыми возможностями. В частности, мы можем задавать 
+    альтернативные выражения с помощью директивы ng-template.
+    Выражение *ngIf="condition;else unset" указывает, что 
+    если condition равно false, то срабатывает блок 
+    (ng-template #unset).
+</p>
+<p *ngIf="condition2; else unset">
+    Hello Angular 5!
+</p>
+<ng-template #unset>
+    <p>Bye Angular 5!</p>
+</ng-template>
+<button (click) = "toggle2()">Toggle</button>
+<p>
+    Либо можно определить более изощренную логику. 
+    В данном случае, если condition равно true, 
+    то отображается блок thenBlock, иначе отображается 
+    блок elseBlock.
+</p>
+<div *ngIf="condition3; then thenBlock; else elseBlock"></div>
+<p>
+    <ng-template #thenBlock>
+        Hello to all!
+    </ng-template>
+    <ng-template #elseBlock>
+        Bye everyone!
+    </ng-template>
+</p>
+<button (click) = "toggle3()">Toggle</button>

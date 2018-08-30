@@ -74,7 +74,7 @@ import { AppComponent } from './app.component';
 // {path: 'item/:id', component: ItemInfoCommponent, children: itemRoutes},
 
 const appRoutes: Routes = [
-    {path: '', component: AppComponent},
+    // {path: '', component: AppComponent},
     // {path: 'old_version', component: RoutersMainComponent, children: oldVesionRoutes },
 
     {path: 'test', component: MainTestComponent},
