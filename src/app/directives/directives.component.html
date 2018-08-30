@@ -17,16 +17,16 @@
             функционала по работе с шаблонами.
         </p>
     </li>
-    <li>
-        Атрибутивные:
+    <li routerLinkActive = "active">
+        <a routerLink = "/directives/attributive">Атрибутивные:</a>
         <p>
             Oни изменяют поведение уже существующего элемента, 
             к которому они применяются. 
             Например, ngModel, ngStyle, ngClass
         </p>
     </li>
-    <li>
-        Структурные:
+    <li routerLinkActive = "active">
+        <a routerLink = "/directives/structure">Структурные:</a>
         <p>
             Oни изменяют структуру DOM с помощью добавления, 
             изменения или удаления элементов hmtl. 
@@ -34,4 +34,5 @@
         </p>
     </li>
 </ul>
-<app-attributive-directives-comp></app-attributive-directives-comp>
+<router-outlet></router-outlet>
+<!-- <app-attributive-directives-comp></app-attributive-directives-comp> -->
