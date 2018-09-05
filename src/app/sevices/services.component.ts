@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // Чтобы задействовать сервис в компоненте, его надо импортировать:
 import { DataService } from './services/data.service';
+import { LogService } from './services/log.service';
 import { Phone } from './phone';
 
 @Component({
@@ -10,7 +11,7 @@ import { Phone } from './phone';
     /**сервис необходимо его добавить в коллекцию providers
      * компонента (Все используемые сервисы должны быть
      * определены в коллекции providers.): */
-    providers: [DataService]
+    providers: [DataService, LogService]
 })
 export class ServicesComponent implements OnInit {
     public items: Phone[] = [];
