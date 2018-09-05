@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { Test1Component } from './tests/test1/test1.component';
 import { BasicModule } from './basic/basic.module';
 import { DirectivesModule } from './directives/directives.module';
+import { ServicesModule } from './sevices/services.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DirectivesModule } from './directives/directives.module';
     BrowserModule,
     AppRouteModule,
     BasicModule,
-    DirectivesModule
+    DirectivesModule,
+    ServicesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

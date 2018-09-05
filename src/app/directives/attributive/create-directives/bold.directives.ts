@@ -171,7 +171,7 @@ export class BoldInputDirective implements OnInit {
     @Input() defaultSize = '16px';
 
     /**Здесь в декоратор Input передается селектор
-     * директивы - bold.
+     * директивы - boldInput.
      * Поэтому чтобы установить этот параметр в шаблоне
      * компонента мы можем напрямую использовать имя
      * директивы */
