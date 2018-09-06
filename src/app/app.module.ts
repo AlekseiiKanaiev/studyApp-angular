@@ -14,6 +14,7 @@ import { Test1Component } from './tests/test1/test1.component';
 import { BasicModule } from './basic/basic.module';
 import { DirectivesModule } from './directives/directives.module';
 import { ServicesModule } from './sevices/services.module';
+import { MyFormsModule } from './forms/forms.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ServicesModule } from './sevices/services.module';
     AppRouteModule,
     BasicModule,
     DirectivesModule,
-    ServicesModule
+    ServicesModule,
+    MyFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
