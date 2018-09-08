@@ -10,7 +10,7 @@ export class User {
 @Component({
     selector: 'app-validation-forms-comp',
     templateUrl: './validation.forms.component.html',
-    styleUrls: ['../forms.component.css']
+    styleUrls: ['../forms.component.css', './validation.forms.component.css']
 })
 export class ValiadtionFormsComponent {
     user: User = new User();

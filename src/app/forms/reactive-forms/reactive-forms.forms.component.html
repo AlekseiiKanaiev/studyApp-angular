@@ -1,0 +1,192 @@
+<h3>Reactive Forms:</h3>
+<p>
+    В других темах описан подход Template-Driven, 
+    который концентрировался вокруг шаблона компонента: 
+    для работы с формой и ее элементами в шаблоне компонента 
+    к элементам html применялись директивы NgModel и NgForm, 
+    правила валидации задавались в тегах элементов с помощью 
+    атрибутов required и pattern. 
+    Но есть альтернативный подход - использование реактивных 
+    форм (Reactive Forms). 
+</p>
+<p>
+    При подходе Reactive Forms для формы создается набор 
+    объектов FormGroup и FormControl. 
+    Сама форма и ее подсекции представляют класс FormGroup, 
+    а отдельные элементы ввода - класс FormControl.
+</p>
+<div>
+    <p>
+        Для привязки объекта myForm к конкретному элементу
+        формы применяется атрибут formGroup:
+        <br> 
+        form [formGroup]="myForm"
+        <br>
+    </p>
+    <form [formGroup]="myForm" novalidate (ngSubmit)="submit()">
+        <div class="form-group">
+            <label>Имя</label>
+            <p>
+                Кроме того, необходимо связать объекты 
+                FormControl с элементами ввода с помощью 
+                атрибута formControlName:
+                <br>
+                input name="name" formControlName="userName"
+                <br>
+                Данный элемент будет связан с объектом
+                "userName": new FormControl("Tom").
+            </p>
+            <input class="form-control" name="name" formControlName="userName" />
+            <p>
+                Для отображения ошибок валидации здесь 
+                используется блоки div, в которых определены 
+                выражения типа:
+                <br>
+                *ngIf="myForm.controls['userName'].invalid 
+                && myForm.controls['userName'].touched"
+            </p>
+            <p>
+                С помощью выражений 
+                myForm.controls['userName'] 
+                мы можем обратиться к нужному элементу формы 
+                и получить его состояние или значение. 
+                В данном случае если значение поля ввода 
+                невалидно, и при этом поле ввода уже получало 
+                фокус, то отображается ошибка валидации.
+            </p>
+            <div class="alert alert-danger"
+                *ngIf="myForm.controls['userName'].invalid && myForm.controls['userName'].touched">
+                Не указано имя
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input class="form-control" name="email" formControlName="userEmail" />
+                
+            <div class="alert alert-danger"
+                *ngIf="myForm.controls['userEmail'].invalid && myForm.controls['userEmail'].touched">
+                Некорректный email
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Телефон</label>
+            <input class="form-control" name="phone" formControlName="userPhone" />
+        </div>
+        <div class="form-group">
+            <button class="btn btn-default" [disabled]="myForm.invalid">
+                Отправить
+            </button>
+        </div>
+    </form>
+</div>
+<h3>Определение валидаторов:</h3>
+<p>
+    Кроме использования встроенных валидаторов мы также 
+    можем определять свои валидаторы. 
+</p>
+<div>
+    <form [formGroup]="myForm1" novalidate (ngSubmit)="submit()">
+        <div class="form-group">
+            <label>Имя</label>
+            <input class="form-control" name="name" formControlName="userName1" />
+            <div class="alert alert-danger"
+                *ngIf="myForm1.controls['userName1'].invalid && myForm1.controls['userName1'].touched">
+                Не указано имя
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-default" [disabled]="myForm1.invalid">
+                Отправить
+            </button>
+        </div>
+    </form>
+</div>
+<h3>Массивы элементов и FormArray:</h3>
+<p>
+    Некоторые элементы на форме могут относиться к одному 
+    и тому же признаку. 
+    Например, в анкете пользователя могут попросить указать 
+    номера телефоно, которыми он владеет. 
+    Их может быть несколько, но они будут представлять 
+    один и тот же признак - "номера телефонов". 
+    То есть логично было бы объединить все поля для 
+    ввода номеров телефонов в массив. 
+    И в Angular мы легко можем реализовать подобную 
+    возможность с помощью класса FormArray.
+</p>
+<div>
+    <form [formGroup]="myForm2" novalidate (ngSubmit)="submit()">
+        <p>
+            Контейнер всех элементов ввода имеет директиву 
+            formArrayName="userPhone2"
+        </p>
+        <div formArrayName="userPhone2">
+            <p>
+                Выводим объекты на форму с помощью директивы "ngFor"
+            </p>
+            <div class="form-group" *ngFor="let phone of myForm2.controls['userPhone2'].controls; let i = index">
+                <p>
+                    Каждый элемент в качестве названия 
+                    принимает его текущий индекс: 
+                    formControlName="{{i}}"
+                </p>
+                <label>Телефон</label>
+                <input class="form-control" formControlName="{{i}}" />
+            </div>
+        </div>
+        <div class="form-group">
+            <p>
+                А кнопка "Добавить телефон" позволяет 
+                добавить на форму новое поле для ввода еще 
+                одного телефонного номера:
+            </p>
+            <button class="btn btn-default" (click)="addPhone()">
+                Добавить телефон
+            </button>
+            <button class="btn btn-default" [disabled]="myForm2.invalid">
+                Отправить
+            </button>
+        </div>
+    </form>
+</div>
+<h3>FormBuilder:</h3>
+<p>
+    Класс FormBuilder представляет альтернативный подход 
+    к созданию форм.
+</p>
+<div>
+    <form [formGroup]="myForm3" novalidate (ngSubmit)="submit()">
+        <div class="form-group">
+            <label>Имя</label>
+            <input class="form-control" name="name" formControlName="userName3" />
+                
+            <div class="alert alert-danger"
+                *ngIf="myForm3.controls['userName3'].invalid && myForm3.controls['userName3'].touched">
+                Не указано имя
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input class="form-control" name="email" formControlName="userEmail3" />
+                
+            <div class="alert alert-danger"
+                *ngIf="myForm3.controls['userEmail3'].invalid && myForm3.controls['userEmail3'].touched">
+                Некорректный email
+            </div>
+        </div>
+        <div formArrayName="phones">
+            <div class="form-group" *ngFor="let phone of myForm3.controls['phones'].controls; let i = index">
+                <label>Телефон</label>
+                <input class="form-control" formControlName="{{i}}" />
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-default" (click)="addPhone3()">
+                Добавить телефон
+            </button>
+            <button class="btn btn-default" [disabled]="myForm3.invalid">
+                Отправить
+            </button>
+        </div>
+    </form>
+</div>

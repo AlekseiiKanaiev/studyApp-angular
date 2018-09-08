@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { FromsComponent } from './forms.component';
+import { FormsComponent } from './forms.component';
 import { SimpleFormsComponent } from './simpleForms/simple.forms.component';
 import { ValiadtionFormsComponent } from './validation/validation.forms.component';
+import { NgFormsComponent } from './ngforms/ngforms.forms.component';
+import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.forms.component';
 
 const formsChildrenRoutes: Routes = [
     {path: 'simple-forms', component: SimpleFormsComponent},
     {path: 'validation', component: ValiadtionFormsComponent},
-    // {path: 'lifecycle', component: },
-    // {path: 'template-variables', component: }
+    {path: 'ngforms', component: NgFormsComponent},
+    {path: 'reactive-forms', component: ReactiveFormsComponent}
 ];
 
 const formsRoutes: Routes = [
-    {path: 'forms', component: FromsComponent, children: formsChildrenRoutes}
+    {path: 'forms', component: FormsComponent, children: formsChildrenRoutes}
 ];
 
 @NgModule({
@@ -21,7 +23,9 @@ const formsRoutes: Routes = [
 })
 export class FormsRouteModule {}
 export const formsRoutings = [
-    FromsComponent,
+    FormsComponent,
     SimpleFormsComponent,
-    ValiadtionFormsComponent
+    ValiadtionFormsComponent,
+    NgFormsComponent,
+    ReactiveFormsComponent
 ];

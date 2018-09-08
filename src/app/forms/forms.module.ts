@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { formsRoutings, FormsRouteModule } from './forms.route.module';
 
@@ -7,7 +7,8 @@ import { formsRoutings, FormsRouteModule } from './forms.route.module';
     imports: [
         FormsRouteModule,
         FormsModule,
-        BrowserModule
+        BrowserModule,
+        ReactiveFormsModule
     ],
     declarations: [formsRoutings]
 })
