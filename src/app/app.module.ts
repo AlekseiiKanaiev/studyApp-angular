@@ -15,11 +15,14 @@ import { BasicModule } from './basic/basic.module';
 import { DirectivesModule } from './directives/directives.module';
 import { ServicesModule } from './sevices/services.module';
 import { MyFormsModule } from './forms/forms.module';
+import { calculatorComponents } from './tests/calculator/components/calculator.model';
+// import { CalculatorService } from './tests/calculator/services/calculator.service';
 
 @NgModule({
   declarations: [
     appRoutingComponents,
-    Test1Component
+    Test1Component,
+    calculatorComponents
   ],
   imports: [
     BrowserModule,
