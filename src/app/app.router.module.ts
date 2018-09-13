@@ -5,6 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { MainTestComponent } from './tests/test.component';
 import { AppComponent } from './app.component';
+import { CalculatorComponent } from './tests/calculator/components/calculator.component';
+// import { CalculatorModel } from './tests/calculator/components/calculator.model';
+
+const testChildren: Routes = [
+    {path: 'calculator', component: CalculatorComponent}
+];
 
 /**Для каждого из компонентов мы можем определить свой маршрут.
  * определяется сам набор маршрутов
@@ -77,7 +83,7 @@ const appRoutes: Routes = [
     // {path: '', component: AppComponent},
     // {path: 'old_version', component: RoutersMainComponent, children: oldVesionRoutes },
 
-    {path: 'test', component: MainTestComponent},
+    {path: 'test', component: MainTestComponent, children: testChildren},
 
     /** Вполне возможно, что по какому-то маршруту мы захотим сделать
      * переадресацию по другому пути. Например, в случае, если нужного
@@ -100,12 +106,14 @@ const appRoutes: Routes = [
      * начальную навигацию по текущему URL, который стоит
      * в адресной строке браузера. */
     imports: [
-        RouterModule.forRoot(appRoutes)
+        RouterModule.forRoot(appRoutes),
+        // CalculatorModel
     ],
     exports: [RouterModule]
 })
 export class AppRouteModule {}
 export const appRoutingComponents = [
     AppComponent,
-    MainTestComponent
+    MainTestComponent,
+    CalculatorComponent
 ];

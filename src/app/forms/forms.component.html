@@ -1,0 +1,27 @@
+<h2>Работа с формами:</h2>
+<p>
+    Для взаимодействия с пользователем в веб-приложениях, 
+    как правило применяются формы. 
+    В Angular прежде чем использовать формы в компонентах, 
+    нам надо импортировать в нашем модуле MyFormsModule модуль 
+    FormsModule, который позволяет работать с формами.
+    Кроме того, в файле конфигурации приложения package.json 
+    среди списка используемых зависимостей должен быть указан 
+    пакет "angular/forms".
+</p>
+<ul class="nav">
+    <li routerLinkActive = "active">
+        <a routerLink = "/forms/simple-forms">Простые формы</a>
+    </li>
+    <li routerLinkActive = "active">
+        <a routerLink = "/forms/validation">Состояние модели и валидация</a>
+    </li>
+    <li routerLinkActive = "active">
+        <a routerLink = "/forms/ngforms">Директива NgForm</a>
+    </li>
+    <li routerLinkActive = "active">
+        <a routerLink = "/forms/reactive-forms">Reactive Forms</a>
+    </li>
+</ul>
+<hr>
+<router-outlet></router-outlet>
