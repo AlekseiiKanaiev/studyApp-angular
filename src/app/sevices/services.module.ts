@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ServicesRouteModule, servicesRoutingComponents } from './services.route.module';
 import { DataComponent } from './data/data.component';
@@ -13,7 +13,7 @@ import { DataComponent } from './data/data.component';
     ],
     imports: [
         FormsModule,
-        BrowserModule,
+        CommonModule,
         ServicesRouteModule
     ]
 })
