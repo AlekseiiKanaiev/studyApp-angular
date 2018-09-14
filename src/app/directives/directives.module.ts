@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 // Для работы с ngClass  и тп
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { DirectivesRouteModule, directivesRoutingComponents } from './directives.route.module';
@@ -23,7 +23,7 @@ import { WhileDirective } from './structure/create-directives/while.directives';
 
 @NgModule({
     imports: [
-        BrowserModule,
+        CommonModule,
         FormsModule,
         DirectivesRouteModule
     ],

@@ -1,18 +1,15 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-</div>
-<h2>Menu</h2>
-<ul class="nav">
+<h2>HTTP и взаимодействие с сервером</h2>
+<p>
+    {{ winScroll }}
+</p>
+<ul class="nav flex-column">
     <li routerLinkActive = "active">
-        <a routerLink = "/basic">Основы</a>
+        <a routerLink = "/http/sending-requests">HttpClient и отправка запросов</a>
     </li>
     <li routerLinkActive = "active">
-        <a routerLink = "/directives">Директивы</a>
+        <a routerLink = "/http/observable-in-http">Объект Observable и библиотека RxJS</a>
     </li>
-    <li routerLinkActive = "active">
+    <!-- <li routerLinkActive = "active">
         <a routerLink = "/services">Сервисы</a>
     </li>
     <li routerLinkActive = "active">
@@ -23,7 +20,8 @@
     </li>
     <li routerLinkActive = "active">
         <a routerLink = "/test">Tests</a>
-    </li>
+    </li> -->
 </ul>
 <hr>
 <router-outlet></router-outlet>
+<app-to-top-comp></app-to-top-comp>

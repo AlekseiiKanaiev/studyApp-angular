@@ -16,13 +16,16 @@ import { DirectivesModule } from './directives/directives.module';
 import { ServicesModule } from './sevices/services.module';
 import { MyFormsModule } from './forms/forms.module';
 import { calculatorComponents } from './tests/calculator/components/calculator.model';
+import { HTTPModule } from './http/http.module';
+import { ToTopComponent } from './tests/toTop.component/to-top.component';
 // import { CalculatorService } from './tests/calculator/services/calculator.service';
 
 @NgModule({
   declarations: [
     appRoutingComponents,
     Test1Component,
-    calculatorComponents
+    calculatorComponents,
+    ToTopComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { calculatorComponents } from './tests/calculator/components/calculator.m
     BasicModule,
     DirectivesModule,
     ServicesModule,
-    MyFormsModule
+    MyFormsModule,
+    HTTPModule
   ],
   providers: [],
   bootstrap: [AppComponent]
