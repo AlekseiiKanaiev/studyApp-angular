@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { MainTestComponent } from './tests/test.component';
 import { AppComponent } from './app.component';
 import { CalculatorComponent } from './tests/calculator/components/calculator.component';
+import { HomeComponent } from './home.component';
 // import { CalculatorModel } from './tests/calculator/components/calculator.model';
 
 const testChildren: Routes = [
@@ -80,7 +81,7 @@ const testChildren: Routes = [
 // {path: 'item/:id', component: ItemInfoCommponent, children: itemRoutes},
 
 const appRoutes: Routes = [
-    // {path: '', component: AppComponent},
+    {path: '', component: HomeComponent},
     // {path: 'old_version', component: RoutersMainComponent, children: oldVesionRoutes },
 
     {path: 'test', component: MainTestComponent, children: testChildren},

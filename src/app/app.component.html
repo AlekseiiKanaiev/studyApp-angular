@@ -4,7 +4,7 @@
     Welcome to {{ title }}!
   </h1>
 </div>
-<h2>Menu</h2>
+<!-- <h2>Menu</h2>
 <ul class="nav">
     <li routerLinkActive = "active">
         <a routerLink = "/basic">Основы</a>
@@ -27,13 +27,13 @@
     <li routerLinkActive = "active">
         <a routerLink = "/test">Tests</a>
     </li>
-</ul>
+</ul> -->
 <hr>
 <router-outlet></router-outlet>
 <br>
 <div *ngIf="url !== '/' && url !== ''">
     <hr>
-    <button (click) = "goHome()">To Main Page</button>
+    <button class="goHome" (click) = "goHome()">To Main Page</button>
     <app-to-top-comp></app-to-top-comp>
 </div>
 

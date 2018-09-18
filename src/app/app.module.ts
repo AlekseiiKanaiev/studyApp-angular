@@ -19,6 +19,7 @@ import { calculatorComponents } from './tests/calculator/components/calculator.m
 import { HTTPModule } from './http/http.module';
 import { ToTopComponent } from './toTop.component/to-top.component';
 import { RoutingsModule } from './routings/routing.model';
+import { HomeComponent } from './home.component';
 // import { CalculatorService } from './tests/calculator/services/calculator.service';
 
 @NgModule({
@@ -26,7 +27,8 @@ import { RoutingsModule } from './routings/routing.model';
     appRoutingComponents,
     Test1Component,
     calculatorComponents,
-    ToTopComponent
+    ToTopComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

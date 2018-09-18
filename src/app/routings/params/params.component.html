@@ -1,0 +1,68 @@
+<div>
+    <nav>
+        <div>
+            <h3>Параметры маршрута</h3>
+            <p>
+                При определении ссылки на компонент, который 
+                использует параметры маршрута, все необходимые 
+                параметры заключаются в квадратные скобки.
+            </p>
+            <a [routerLink]="['item', '5']">item 5</a>
+            <p>
+                Данный подход работает для одной ссылки, но что 
+                если у нас несколько ссылок на один и тот же 
+                компонент, но с разными id?
+            </p>
+            <p>
+                <a [routerLink]="['item', '5']">item 5</a>
+                <a [routerLink]="['item', '8']">item 8</a>
+            </p>
+            <p>
+                Если мы сначала перейдем по первой ссылке, 
+                то компонент ItemComponent получит id=5. 
+                Если после этого мы перейдем по второй ссылке, 
+                ItemComponent будет продолжать хранить прежнее 
+                значение id = 5.
+                Чтобы решить эту проблему, нам надо динамически 
+                изменять значение id в компоненте ItemComponent.
+            </p>
+        </div>
+        <div>
+            <h3>Параметры строки запроса</h3>
+            <p>
+                Кроме параметров маршрута в запросе могут 
+                передаваться параметры строки запроса. 
+                Например, в запросе 
+                http://localhost:3000/item?product=phone&price=200 
+                часть product=phone&price=200 будет 
+                представлять параметры запроса - product и price. 
+                Такие параметры помещаются в конце адреса 
+                после вопросительного знака и разделяются 
+                амперсандом. Параметры строки запроса не 
+                влияют на определение маршрутов, 
+                и их количество произвольно.
+            </p>
+            <p>
+                <a [routerLink]="['item', '5']"
+                    [queryParams]="{'product':'phone', 'price': 200}">
+                    item 5
+                </a>
+                <a [routerLink]="['item', '8']"
+                    [queryParams]="{'product':'tablet'}">
+                    item 8
+                </a>
+            </p>
+        </div>
+        <div>
+            <h3>Параметры маршрута и строки запроса</h3>
+            <div  class="form-group">
+                <h3>Параметры объекта</h3>
+                <input type="number" [(ngModel)]="item.id" class="form-control" placeholder="Номер модели"/><br />
+                <input type="number" [(ngModel)]="item.price" class="form-control" placeholder="Цена" /><br />
+                <input [(ngModel)]="item.product" class="form-control" placeholder="Товар" /><br />
+                <button (click)="goToItem(item)" class="btn">Перейти</button>
+            </div>
+        </div>
+    </nav>
+</div>
+<router-outlet></router-outlet>
