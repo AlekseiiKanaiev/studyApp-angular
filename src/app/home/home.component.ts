@@ -1,38 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { User } from '../authorization/_models/user';
+import { UserService } from '../authorization/_services/user.service';
+import { first } from 'rxjs/operators';
 
 
 @Component({
     selector: 'app-home',
-    template: `
-        <h2>Menu</h2>
-        <ul class="nav">
-            <li routerLinkActive = "active">
-                <a routerLink = "/basic">Основы</a>
-            </li>
-            <li routerLinkActive = "active">
-                <a routerLink = "/directives">Директивы</a>
-            </li>
-            <li routerLinkActive = "active">
-                <a routerLink = "/services">Сервисы</a>
-            </li>
-            <li routerLinkActive = "active">
-                <a routerLink = "/forms">Формы</a>
-            </li>
-            <li routerLinkActive = "active">
-                <a routerLink = "/http">HTTP и взаимодействие с сервером</a>
-            </li>
-            <li routerLinkActive = "active">
-                <a routerLink = "/routings">Маршрутизация</a>
-            </li>
-            <li routerLinkActive = "active">
-                <a routerLink = "/test">Tests</a>
-            </li>
-        </ul>
-    `,
+    templateUrl: './home.component.html',
     styles: [`
         li {
             padding-right: 10px;
         }
     `]
 })
-export class HomeComponent {}
+export class HomeComponent implements OnInit {
+    private currentUser: User;
+    private users: User[];
+
+    constructor(private userService: UserService) {}
+
+    ngOnInit() {
+        this.loadAllUsers();
+    }
+
+    deleteUser(id: number) {
+        this.userService.delete(id).pipe(first()).subscribe(
+            () => this.loadAllUsers()
+        );
+    }
+
+    private loadAllUsers() {
+        this.userService.getAll().pipe(first()).subscribe(
+            users => this.users = users
+        );
+    }
+}
