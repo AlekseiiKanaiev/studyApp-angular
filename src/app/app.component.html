@@ -6,7 +6,11 @@
 </div>
 <app-gohome-button-comp></app-gohome-button-comp>
 <hr>
-<router-outlet></router-outlet>
+<div class="container">
+    <div class="row">
+            <router-outlet></router-outlet>
+    </div>
+</div>
 <br>
 <app-gohome-button-comp *ngIf="isScroll"></app-gohome-button-comp>
 <app-to-top-comp *ngIf="isScroll"></app-to-top-comp>
