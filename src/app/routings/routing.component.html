@@ -1,0 +1,21 @@
+<h2>Маршрутизация</h2>
+<p>
+    Маршрутизация позволяет сопоставлять запросы к 
+    приложению с определенными ресурсами внутри приложения.
+</p>
+<p>
+    Ключевым для работы маршрутизации является модуль 
+    RouterModule, который располагается в пакете 
+    @angular/router.
+</p>
+<div>
+    <ul class="nav flex-column">
+        <li routerLinkActive = "active">
+            <a routerLink = "/routings/params">Параметры</a>
+        </li>
+        <li routerLinkActive = "active">
+            <a routerLink = "/routings/guards">Guards</a>
+        </li>
+    </ul>
+</div>
+<router-outlet></router-outlet>

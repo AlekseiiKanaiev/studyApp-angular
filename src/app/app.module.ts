@@ -17,7 +17,10 @@ import { ServicesModule } from './sevices/services.module';
 import { MyFormsModule } from './forms/forms.module';
 import { calculatorComponents } from './tests/calculator/components/calculator.model';
 import { HTTPModule } from './http/http.module';
-import { ToTopComponent } from './tests/toTop.component/to-top.component';
+import { ToTopComponent } from './toTop.component/to-top.component';
+import { RoutingsModule } from './routings/routing.model';
+import { HomeComponent } from './home.component';
+import { GoHomeComponent } from './goHome/goHome.component';
 // import { CalculatorService } from './tests/calculator/services/calculator.service';
 
 @NgModule({
@@ -25,7 +28,9 @@ import { ToTopComponent } from './tests/toTop.component/to-top.component';
     appRoutingComponents,
     Test1Component,
     calculatorComponents,
-    ToTopComponent
+    ToTopComponent,
+    HomeComponent,
+    GoHomeComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +39,8 @@ import { ToTopComponent } from './tests/toTop.component/to-top.component';
     DirectivesModule,
     ServicesModule,
     MyFormsModule,
-    HTTPModule
+    HTTPModule,
+    RoutingsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,26 +4,9 @@
     Welcome to {{ title }}!
   </h1>
 </div>
-<h2>Menu</h2>
-<ul class="nav">
-    <li routerLinkActive = "active">
-        <a routerLink = "/basic">Основы</a>
-    </li>
-    <li routerLinkActive = "active">
-        <a routerLink = "/directives">Директивы</a>
-    </li>
-    <li routerLinkActive = "active">
-        <a routerLink = "/services">Сервисы</a>
-    </li>
-    <li routerLinkActive = "active">
-        <a routerLink = "/forms">Формы</a>
-    </li>
-    <li routerLinkActive = "active">
-        <a routerLink = "/http">HTTP и взаимодействие с сервером</a>
-    </li>
-    <li routerLinkActive = "active">
-        <a routerLink = "/test">Tests</a>
-    </li>
-</ul>
+<app-gohome-button-comp></app-gohome-button-comp>
 <hr>
 <router-outlet></router-outlet>
+<br>
+<app-gohome-button-comp *ngIf="isScroll"></app-gohome-button-comp>
+<app-to-top-comp *ngIf="isScroll"></app-to-top-comp>
