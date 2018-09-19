@@ -19,7 +19,7 @@ import { calculatorComponents } from './tests/calculator/components/calculator.m
 import { HTTPModule } from './http/http.module';
 import { ToTopComponent } from './toTop.component/to-top.component';
 import { RoutingsModule } from './routings/routing.model';
-import { HomeComponent } from './home.component';
+import { HomeComponent } from './home/home.component';
 import { GoHomeComponent } from './goHome/goHome.component';
 // import { CalculatorService } from './tests/calculator/services/calculator.service';
 
