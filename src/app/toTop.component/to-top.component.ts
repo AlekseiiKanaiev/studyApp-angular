@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'app-to-top-comp',
     template: `
-        <button class = 'to-top' (click) = onClick()>{{winScroll}}</button>
+        <button class = 'to-top' (click) = onClick()>T</button>
     `,
     styles: [`
     .to-top{
@@ -11,7 +11,7 @@ import { Component } from '@angular/core';
         color: rgba(#444444,0.8);
         bottom: 25px;
         right: 10px;
-        background-color: white;
+        background-color: light-blue;
         z-index: 12;
         border-radius: 10em;
         width: 50px;
@@ -26,9 +26,7 @@ import { Component } from '@angular/core';
     `]
 })
 export class ToTopComponent {
-    winScroll = window.scrollX;
-
     onClick(): void {
-
+        window.scrollTo({top: 0, behavior: 'smooth'});
     }
 }
