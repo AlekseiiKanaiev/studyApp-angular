@@ -11,17 +11,13 @@ import { NgModule } from '@angular/core';
 import { AppRouteModule, appRoutingComponents } from './app.router.module';
 import { AppComponent } from './app.component';
 import { Test1Component } from './tests/test1/test1.component';
-import { BasicModule } from './basic/basic.module';
-import { DirectivesModule } from './directives/directives.module';
-import { ServicesModule } from './sevices/services.module';
-import { MyFormsModule } from './forms/forms.module';
 import { calculatorComponents } from './tests/calculator/components/calculator.model';
-import { HTTPModule } from './http/http.module';
 import { ToTopComponent } from './toTop.component/to-top.component';
-import { RoutingsModule } from './routings/routing.model';
 import { HomeComponent } from './home/home.component';
 import { GoHomeComponent } from './goHome/goHome.component';
-// import { CalculatorService } from './tests/calculator/services/calculator.service';
+import { LearnAngularModule } from './learn-angular/learn-angular.module';
+import { AuthorizationModule } from './authorization/authorization.module';
+import { AlertComponent } from './authorization/_directives/alert.component';
 
 @NgModule({
   declarations: [
@@ -30,17 +26,14 @@ import { GoHomeComponent } from './goHome/goHome.component';
     calculatorComponents,
     ToTopComponent,
     HomeComponent,
-    GoHomeComponent
+    GoHomeComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
     AppRouteModule,
-    BasicModule,
-    DirectivesModule,
-    ServicesModule,
-    MyFormsModule,
-    HTTPModule,
-    RoutingsModule
+    LearnAngularModule,
+    AuthorizationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
