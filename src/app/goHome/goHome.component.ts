@@ -5,7 +5,7 @@ import { Location } from '@angular/common';
 @Component({
     selector: 'app-gohome-button-comp',
     template: `
-        <div *ngIf="url !== '/' && url !== ''">
+        <div *ngIf="isButton">
             <hr>
             <button class="goHome" (click) = "goHome()">To Main Page</button>
         </div>
@@ -17,7 +17,7 @@ import { Location } from '@angular/common';
     `]
 })
 export class GoHomeComponent implements OnInit {
-    private url: string;
+    private isButton = true;
 
     constructor(private router: Router, private location: Location) {}
 
@@ -25,7 +25,16 @@ export class GoHomeComponent implements OnInit {
         // Подписываемся на получение текущего нашего адреса
         this.router.events.subscribe(
             () => {
-            this.url = this.location.path();
+                const url = this.location.path();
+                if (url !== '/' &&
+                    url !== '' &&
+                    url !== '/register' &&
+                    url !== '/login') {
+                        this.isButton = true;
+                } else {
+                    this.isButton = false;
+                }
+                console.log(this.isButton);
             }
         );
     }

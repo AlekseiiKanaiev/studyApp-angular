@@ -17,6 +17,7 @@ import { HomeComponent } from './home/home.component';
 import { GoHomeComponent } from './goHome/goHome.component';
 import { LearnAngularModule } from './learn-angular/learn-angular.module';
 import { AuthorizationModule } from './authorization/authorization.module';
+import { AlertComponent } from './authorization/_directives/alert.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AuthorizationModule } from './authorization/authorization.module';
     calculatorComponents,
     ToTopComponent,
     HomeComponent,
-    GoHomeComponent
+    GoHomeComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,

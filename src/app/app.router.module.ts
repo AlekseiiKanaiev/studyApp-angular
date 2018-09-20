@@ -7,7 +7,9 @@ import { MainTestComponent } from './tests/test.component';
 import { AppComponent } from './app.component';
 import { CalculatorComponent } from './tests/calculator/components/calculator.component';
 import { HomeComponent } from './home/home.component';
-// import { CalculatorModel } from './tests/calculator/components/calculator.model';
+import { AuthGuard } from './authorization/_guards/auth.guard';
+import { LoginComponent } from './authorization/login/login.component';
+import { RegisterComponent } from './authorization/register/register.component';
 
 const testChildren: Routes = [
     {path: 'calculator', component: CalculatorComponent}
@@ -81,9 +83,10 @@ const testChildren: Routes = [
 // {path: 'item/:id', component: ItemInfoCommponent, children: itemRoutes},
 
 const appRoutes: Routes = [
-    {path: '', component: HomeComponent},
+    {path: '', component: HomeComponent, canActivate: [AuthGuard]},
     // {path: 'old_version', component: RoutersMainComponent, children: oldVesionRoutes },
-
+    // {path: 'login', component: LoginComponent},
+    // {path: 'register', component: RegisterComponent},
     {path: 'test', component: MainTestComponent, children: testChildren},
 
     /** Вполне возможно, что по какому-то маршруту мы захотим сделать

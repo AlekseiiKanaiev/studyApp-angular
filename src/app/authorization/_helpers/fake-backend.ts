@@ -21,8 +21,10 @@ import { mergeMap, materialize, dematerialize, delay } from 'rxjs/operators';
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
+
     constructor() {}
     intercept(requests: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        console.log('fake-backend');
         // get array from local storage for registred users
         const users: any[] = JSON.parse(localStorage.getItem('users')) || [];
 
@@ -31,10 +33,11 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             mergeMap(() => {
 
                 // authenticate
-                if (requests.url.endsWith('users/authenticate') && requests.method === 'POST') {
+                if (requests.url.endsWith('user/authenticate') && requests.method === 'POST') {
                     const filtredUsers = users.filter( user => {
                         return user.userName === requests.body.userName && user.password === requests.body.password;
                     });
+                    console.log(filtredUsers);
                     if (filtredUsers.length) {
                         // if login details are valid returns 200 OK with user details and fake JWT token
                         const user = filtredUsers[0];
@@ -66,7 +69,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 }
 
                 // get user by id
-                if (requests.url.match(/\/users\/\d+$/) && requests.method === 'GET') {
+                if (requests.url.match(/\/user\/\d+$/) && requests.method === 'GET') {
                     /**check for fake auth token in header and
                      * return users if valid
                      * (this security is implemented server side
@@ -89,6 +92,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 // register user
                 if (requests.url.endsWith('/user/register') && requests.method === 'POST') {
                     // get new user object from post body
+                    console.log(requests.body);
                     const newUser = requests.body;
 
                     // validation
@@ -109,7 +113,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 }
 
                 // delete user
-                if (requests.url.match(/\/users\/\d+$/) && requests.method === 'DELETE') {
+                if (requests.url.match(/\/user\/\d+$/) && requests.method === 'DELETE') {
                     /**check for fake auth token in header and
                      * return users if valid
                      * (this security is implemented server side
@@ -121,7 +125,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                             const user = users[i];
                             if (user.id === id) {
                                 // delete user
-                                users.slice(i, 1);
+                                users.splice(i, 1);
                                 localStorage.setItem('users', JSON.stringify(users));
                                 break;
                             }

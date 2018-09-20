@@ -23,16 +23,18 @@ export class AuthenticationService {
     constructor(private http: HttpClient) {}
 
     login(userName: string, password: string): any {
-        return this.http.post<any>(`${environment.apiUrl}/users/authenticate`, {userName: userName, password: password})
+        console.log(1);
+        return this.http.post<any>(`${environment.apiUrl}/user/authenticate`, {userName: userName, password: password})
             .pipe(
                 map(user => {
                     /**loggin successfull if there is jwt token
                      * in response */
+                    console.log(user);
                     if (user && user.token) {
                         /**store user details and jwt token in
                          * local storage to keep user logged
                          * between page refreshes */
-                        localStorage.setItem('user', JSON.stringify(user));
+                        localStorage.setItem('currentUser', JSON.stringify(user));
                     }
                     return user;
                 })

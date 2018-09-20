@@ -6,11 +6,19 @@
 </div>
 <app-gohome-button-comp></app-gohome-button-comp>
 <hr>
-<div class="container">
-    <div class="row">
-            <router-outlet></router-outlet>
+<div [ngClass]="{jumbotron: isJumbotron}">
+  <div class="container">
+      <div class="row">
+        <div [ngClass]="{'col-sm-6 offset-sm-3': isJumbotron}">
+          <app-auth-alert></app-auth-alert>
+          <router-outlet></router-outlet>
+        </div>
     </div>
+  </div>
 </div>
 <br>
-<app-gohome-button-comp *ngIf="isScroll"></app-gohome-button-comp>
-<app-to-top-comp *ngIf="isScroll"></app-to-top-comp>
+<div *ngIf="isScroll">
+  <app-gohome-button-comp></app-gohome-button-comp>
+  <app-to-top-comp></app-to-top-comp>
+</div>
+
