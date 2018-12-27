@@ -19,6 +19,7 @@ export class DisplayComponent implements OnInit {
     ngOnInit() {
         store.subscribe(
             () => {
+                console.log(store.getState().value);
                 this.value = store.getState().value;
             }
         );

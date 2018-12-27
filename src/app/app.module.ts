@@ -18,6 +18,7 @@ import { GoHomeComponent } from './goHome/goHome.component';
 import { LearnAngularModule } from './learn-angular/learn-angular.module';
 import { AuthorizationModule } from './authorization/authorization.module';
 import { AlertComponent } from './authorization/_directives/alert.component';
+import { GoBackComponent } from './goBack/goBack.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AlertComponent } from './authorization/_directives/alert.component';
     ToTopComponent,
     HomeComponent,
     GoHomeComponent,
-    AlertComponent
+    AlertComponent,
+    GoBackComponent
   ],
   imports: [
     BrowserModule,

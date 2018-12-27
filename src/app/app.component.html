@@ -4,7 +4,10 @@
     Welcome to {{ title }}!
   </h1>
 </div>
-<app-gohome-button-comp></app-gohome-button-comp>
+<div *ngIf="isButton">
+  <hr>
+  <app-gohome-button-comp></app-gohome-button-comp>
+</div>
 <hr>
 <div [ngClass]="{jumbotron: isJumbotron}">
   <div class="container">
@@ -17,8 +20,10 @@
   </div>
 </div>
 <br>
+<div *ngIf="isButton">
+  <app-goback-comp></app-goback-comp>
+</div>
 <div *ngIf="isScroll">
-  <app-gohome-button-comp></app-gohome-button-comp>
+  <hr>
   <app-to-top-comp></app-to-top-comp>
 </div>
-
