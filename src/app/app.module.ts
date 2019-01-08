@@ -19,6 +19,7 @@ import { LearnAngularModule } from './learn-angular/learn-angular.module';
 import { AuthorizationModule } from './authorization/authorization.module';
 import { AlertComponent } from './authorization/_directives/alert.component';
 import { GoBackComponent } from './goBack/goBack.component';
+import { GetDataService } from './tests/_services/getData.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,9 @@ import { GoBackComponent } from './goBack/goBack.component';
     LearnAngularModule,
     AuthorizationModule
   ],
-  providers: [],
+  providers: [
+    GetDataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
