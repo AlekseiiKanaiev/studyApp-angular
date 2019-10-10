@@ -13,7 +13,7 @@ import { Location } from '@angular/common';
         }
     `]
 })
-export class GoHomeComponent implements OnInit {
+export class GoHomeButtonComponent implements OnInit {
     private isButton = true;
 
     constructor(private router: Router) {}

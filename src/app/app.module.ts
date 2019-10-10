@@ -8,38 +8,42 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 // импортируются созданные компоненты, сервисы, модули.
+import { LearnAngularModule } from './learn-angular/learn-angular.module';
+import { AuthorizationModule } from './authorization/authorization.module';
+import { MyAppsModule } from './myApps/myApps.module';
+
 import { AppRouteModule, appRoutingComponents } from './app.router.module';
 import { AppComponent } from './app.component';
 import { Test1Component } from './tests/test1/test1.component';
 import { calculatorComponents } from './tests/calculator/components/calculator.model';
-import { ToTopComponent } from './toTop.component/to-top.component';
+import { ToTopButtonComponent } from './toTopButton/to-top.component';
 import { HomeComponent } from './home/home.component';
-import { GoHomeComponent } from './goHome/goHome.component';
-import { LearnAngularModule } from './learn-angular/learn-angular.module';
-import { AuthorizationModule } from './authorization/authorization.module';
+import { GoHomeButtonComponent } from './goHomeButton/goHome.component';
 import { AlertComponent } from './authorization/_directives/alert.component';
-import { GoBackComponent } from './goBack/goBack.component';
-import { GetDataService } from './tests/_services/getData.service';
+import { GoBackButtonComponent } from './goBackButton/goBack.component';
+
+import { GetDataFromAnotherServerService } from './tests/_services/getDataFromAnotherServer.service';
 
 @NgModule({
   declarations: [
     appRoutingComponents,
     Test1Component,
     calculatorComponents,
-    ToTopComponent,
+    ToTopButtonComponent,
     HomeComponent,
-    GoHomeComponent,
+    GoHomeButtonComponent,
     AlertComponent,
-    GoBackComponent
+    GoBackButtonComponent
   ],
   imports: [
     BrowserModule,
     AppRouteModule,
     LearnAngularModule,
-    AuthorizationModule
+    AuthorizationModule,
+    MyAppsModule
   ],
   providers: [
-    GetDataService
+    GetDataFromAnotherServerService
   ],
   bootstrap: [AppComponent]
 })

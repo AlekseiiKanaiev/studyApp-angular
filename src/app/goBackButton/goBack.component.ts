@@ -13,7 +13,7 @@ import { Location } from '@angular/common';
         }
     `]
 })
-export class GoBackComponent implements OnInit {
+export class GoBackButtonComponent implements OnInit {
     private isButton = false;
     constructor(private location: Location) {}
 

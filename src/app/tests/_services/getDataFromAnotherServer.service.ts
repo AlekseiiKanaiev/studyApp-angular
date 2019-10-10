@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { Video } from '../_models/video';
 
 @Injectable()
-export class GetDataService {
+export class GetDataFromAnotherServerService {
     constructor(private http: HttpClient) {}
 
     getData(): Observable<any> {

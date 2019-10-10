@@ -1,0 +1,32 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Routes, RouterModule } from '@angular/router';
+
+import { CalculatorComponent } from './components/calculator.component';
+import { CalculatorDisplayComponent } from './components/display/display.component';
+import { CalculatorKeyboardComponent } from './components/keyboard/keyboard.component';
+import { CalculatorNumKeyComponent } from './components/keyboard/nuberKey/numberKey.component';
+import { CalculatorSignKeyComponent } from './components/keyboard/signKey/signKey.component';
+
+
+const calculatorRotes: Routes = [
+    {path: 'myApps/calculator', component: CalculatorComponent}
+];
+
+@NgModule({
+    imports: [
+        CommonModule,
+        RouterModule.forRoot(calculatorRotes)
+    ],
+    declarations: [
+        CalculatorComponent,
+        CalculatorDisplayComponent,
+        CalculatorKeyboardComponent,
+        CalculatorNumKeyComponent,
+        CalculatorSignKeyComponent
+    ],
+    exports: [
+        RouterModule,
+    ]
+})
+export class CalculatorModule {}

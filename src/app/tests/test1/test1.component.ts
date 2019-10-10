@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { GetDataService } from '../_services/getData.service';
+import { GetDataFromAnotherServerService } from '../_services/getDataFromAnotherServer.service';
 import { Video } from '../_models/video';
 
 @Component({
@@ -16,7 +16,7 @@ export class Test1Component implements OnInit {
 
     someData: Video[];
 
-    constructor(private getDataService: GetDataService) {}
+    constructor(private getDataService: GetDataFromAnotherServerService) {}
 
     ngOnInit(): void {
         this.getDataService.getData().subscribe(

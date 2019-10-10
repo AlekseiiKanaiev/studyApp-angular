@@ -88,7 +88,7 @@ const appRoutes: Routes = [
     // {path: 'login', component: LoginComponent},
     // {path: 'register', component: RegisterComponent},
     {path: 'test', component: MainTestComponent, children: testChildren},
-
+    // {path: 'apps', component: MainTestComponent},
     /** Вполне возможно, что по какому-то маршруту мы захотим сделать
      * переадресацию по другому пути. Например, в случае, если нужного
      * маршрута для запроса не найдено, мы можем переадресовать
