@@ -31,10 +31,10 @@ export class AppComponent implements OnInit {
     this.router.events.subscribe(
       () => {
         const url = this.location.path();
-        if (url === '/register' || url === '/login') {
-          this.isJumbotron = true;
-        } else {
+        if (url !== '/register' && url !== '/login') {
           this.isJumbotron = false;
+        } else {
+          this.isJumbotron = true;
         }
         if (url !== '/' &&
             url !== '' &&

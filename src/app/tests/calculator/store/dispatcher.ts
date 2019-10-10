@@ -8,11 +8,11 @@ function dispatcher(state = {value: '0'}, action) {
     switch (action.type) {
         case NUMBER: {
             calcServ.takeNum(action.value);
-            return {...state, value: state.value = calcServ.getValue()};
+            return {...state, a: state.value = calcServ.getValue()};
         }
         case MATH_SYMBOL: {
             calcServ.takeSign(action.sign);
-            return {...state, value: state.value = calcServ.getValue()};
+            return {...state, a: state.value = calcServ.getValue()};
         }
         default: {
             return state;

@@ -79,7 +79,9 @@ export class CalculatorService {
 
     public takeSign(value: string): void {
         if (value === '=') {
-            if (this.sign !== '=') { this.calculating(this.sign); }
+            if (this.sign !== '=') {
+                this.calculating(this.sign);
+            }
             this.isEquals = true;
         } else {
             (this.sign) ? this.calculating(this.sign) : this.result = parseFloat(this.value);
