@@ -1,0 +1,31 @@
+<div class="keyboard">
+    <table>
+        <tr *ngFor="let items of numKeys first as isFirst">
+            <ng-template ngFor let-key [ngForOf]="items" let-isLast = 'last'>
+                <td *ngIf="!isFirst || !isLast; else nullB">
+                    <app-calculator-numkey-comp [key] = 'key'></app-calculator-numkey-comp>
+                </td>
+                <ng-template #nullB>
+                    <td class = 'null' rowspan = '2'>
+                        <app-calculator-numkey-comp [key] = 'key'></app-calculator-numkey-comp>
+                    </td>
+                </ng-template>
+                
+            </ng-template>
+        </tr>
+    </table>
+    <table>
+        <tr *ngFor="let item of signKeys; last as isLast">
+            <ng-template ngFor let-key [ngForOf] = 'item'>
+                <td *ngIf="!isLast; else equal">
+                    <app-calculator-signkey-comp [key] = 'key'></app-calculator-signkey-comp>
+                </td>
+                <ng-template #equal>
+                    <td colspan="2" class = 'equal'>
+                        <app-calculator-signkey-comp [key] = 'key'></app-calculator-signkey-comp>
+                    </td>
+                </ng-template>
+            </ng-template>
+        </tr>
+    </table>
+</div>
