@@ -6,6 +6,7 @@ export class CalculatorService {
     private result = 0;
     private isDot = false;
     private isEquals = false;
+    private isEnd = false;
     private sign: string;
 
     private obsValue: BehaviorSubject<string> = new BehaviorSubject(this.value);
@@ -20,47 +21,81 @@ export class CalculatorService {
     }
 
     takeNum (value: string): void {
-        if (value === '.') {
-            if (!this.isDot) {
-                this.isDot = true;
+        if (!this.isEnd) {
+            if (value === '.') {
+                if (!this.isDot) {
+                    this.isDot = true;
+                    if (this.isEquals) {
+                        this.isEquals = false;
+                        this.changeValue('0.');
+                    } else {
+                        this.changeValue(this.value + value);
+                    }
+                }
+            } else {
                 if (this.isEquals) {
                     this.isEquals = false;
-                    this.changeValue('0.');
+                    this.changeValue(value);
                 } else {
-                    this.changeValue(this.value + value);
+                    (this.value === '0') ? this.changeValue(value) : this.changeValue(this.value + value);
                 }
-            }
-        } else {
-            if (this.isEquals) {
-                this.isEquals = false;
-                this.changeValue(value);
-            } else {
-                (this.value === '0') ? this.changeValue(value) : this.changeValue(this.value + value);
             }
         }
     }
 
     takeSign (value: string) {
-        if (value === '=') {
-            this.result = this.calculate(parseFloat(this.value), this.sign);
-            this.sign = value;
-            this.isEquals = true;
-            this.changeValue((Math.round(this.result * 100000) / 100000).toString());
-        } else {
-            if (this.sign) {
-                this.result = this.calculate(parseFloat(this.value), this.sign);
-            } else {
-                this.result = parseFloat(this.value);
-            }
-            this.sign = value;
-            this.isDot = false;
-            this.isEquals = false;
-            this.changeValue('0');
+        switch (value) {
+            case 'AC':
+                this.isEnd = false;
+                this.isDot = false;
+                this.result = 0;
+                this.sign = '';
+                this.changeValue('0');
+                break;
+            case 'C':
+                this.isEnd = false;
+                this.isDot = false;
+                if (this.value === '0') {
+                    this.sign = '';
+                }
+                this.changeValue('0');
+                break;
+            case '±':
+                if (!this.isEnd) {
+                    this.changeValue(`-${this.value}`);
+                    this.isEnd = true;
+                }
+                break;
+            case '%':
+                this.isEnd = true;
+                this.changeValue((parseFloat(this.value) / 100).toString());
+                break;
+            case '=':
+                this.result = this.sign ? this.calculate(parseFloat(this.value)) : parseFloat(this.value);
+                // this.result = this.calculate(parseFloat(this.value));
+                this.sign = value;
+                this.isEnd = false;
+                this.isEquals = true;
+                this.changeValue((Math.round(this.result * 1e6) / 1e6).toString());
+                break;
+            case '+':
+            case '-':
+            case '/':
+            case '*':
+                this.result = this.result ? this.calculate(parseFloat(this.value)) : parseFloat(this.value);
+                this.sign = value;
+                this.isEnd = false;
+                this.isDot = false;
+                this.isEquals = false;
+                this.changeValue('0');
+                break;
+            default:
+                break;
         }
     }
 
-    private calculate(num: number, sign1: string): number {
-        switch (sign1) {
+    private calculate(num: number): number {
+        switch (this.sign) {
             case '+':
                 return this.result + num;
             case '-':
@@ -70,7 +105,7 @@ export class CalculatorService {
             case '/':
                 return this.result / num;
             default:
-                return num;
+                return this.result;
         }
     }
 }

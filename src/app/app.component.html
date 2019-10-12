@@ -11,7 +11,7 @@
 <hr>
 <div [ngClass]="{jumbotron: isJumbotron}">
   <div class="container">
-      <div class="row">
+      <div class="row" [ngClass]="{'justify-content-center': isCenterContent}">
         <div [ngClass]="{'col-sm-6 offset-sm-3': isJumbotron}">
           <app-auth-alert></app-auth-alert>
           <router-outlet></router-outlet>

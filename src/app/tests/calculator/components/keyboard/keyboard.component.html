@@ -1,5 +1,5 @@
 <table>
-    <tr *ngFor="let items of numKeys first as isFirst">
+    <tr *ngFor="let items of numKeys; first as isFirst">
         <ng-template ngFor let-key [ngForOf]="items" let-isLast = 'last'>
             <td *ngIf="!isFirst || !isLast">
                 <app-numkey-comp [key] = 'key'></app-numkey-comp>

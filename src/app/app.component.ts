@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   private isScroll = false;
   private isJumbotron = false;
   private isButton = false;
+  private isCenterContent = false;
 
   constructor(private router: Router, private location: Location) {}
 
@@ -39,10 +40,16 @@ export class AppComponent implements OnInit {
         if (url !== '/' &&
             url !== '' &&
             url !== '/register' &&
-            url !== '/login') {
+            url !== '/login' &&
+            url !== '/myApps') {
                 this.isButton = true;
         } else {
             this.isButton = false;
+        }
+        if (url === '/myApps/calculator') {
+            this.isCenterContent = true;
+        } else {
+            this.isCenterContent = false;
         }
       }
     );

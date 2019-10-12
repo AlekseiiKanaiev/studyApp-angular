@@ -7,6 +7,7 @@ import { CalculatorDisplayComponent } from './components/display/display.compone
 import { CalculatorKeyboardComponent } from './components/keyboard/keyboard.component';
 import { CalculatorNumKeyComponent } from './components/keyboard/nuberKey/numberKey.component';
 import { CalculatorSignKeyComponent } from './components/keyboard/signKey/signKey.component';
+import { CalculatorKeysComponent } from './components/keyboard/keys/keys.component';
 
 
 const calculatorRotes: Routes = [
@@ -23,7 +24,8 @@ const calculatorRotes: Routes = [
         CalculatorDisplayComponent,
         CalculatorKeyboardComponent,
         CalculatorNumKeyComponent,
-        CalculatorSignKeyComponent
+        CalculatorSignKeyComponent,
+        CalculatorKeysComponent
     ],
     exports: [
         RouterModule,
