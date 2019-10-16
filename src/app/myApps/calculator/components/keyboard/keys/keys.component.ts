@@ -6,10 +6,7 @@ const {NUMBER, SIGN} = actions;
 
 @Component({
     selector: 'app-calculator-keys-comp',
-    template: `<button (click) = 'click($event)'
-                [style.background-color]="isLastInRow ? 'orange' : isFirstRow ? 'gray' : '#ccc'">
-                    {{ key }}
-                </button>`,
+    templateUrl: './keys.component.html',
     styleUrls: ['../keyboard.component.css']
 })
 export class CalculatorKeysComponent implements OnInit {
@@ -21,7 +18,7 @@ export class CalculatorKeysComponent implements OnInit {
     @Output() change = new EventEmitter<boolean>();
 
     click(ivent: MouseEvent): void {
-        const value = ivent.toElement.innerHTML;
+        const value = ivent.toElement.innerHTML.trim();
         if (this.re.test(value)) {
             store.dispatch({type: NUMBER, value: value});
             this.change.emit(false);

@@ -44,6 +44,8 @@ export class CalculatorService {
     }
 
     takeSign (value: string) {
+        console.log('in serv ' + value);
+        console.log(value === '+');
         switch (value) {
             case 'AC':
                 this.isEnd = false;
@@ -61,17 +63,15 @@ export class CalculatorService {
                 this.changeValue('0');
                 break;
             case '±':
-                if (!this.isEnd) {
-                    this.changeValue(`-${this.value}`);
-                    this.isEnd = true;
-                }
+                this.changeValue((parseFloat(this.value) * -1).toString());
+                this.isEnd = true;
                 break;
             case '%':
                 this.isEnd = true;
                 this.changeValue((parseFloat(this.value) / 100).toString());
                 break;
             case '=':
-                this.result = this.sign ? this.calculate(parseFloat(this.value)) : parseFloat(this.value);
+                this.result = (this.sign && this.sign !== '=') ? this.calculate(parseFloat(this.value)) : parseFloat(this.value);
                 // this.result = this.calculate(parseFloat(this.value));
                 this.sign = value;
                 this.isEnd = false;
@@ -88,6 +88,7 @@ export class CalculatorService {
                 this.isDot = false;
                 this.isEquals = false;
                 this.changeValue('0');
+                console.log('end');
                 break;
             default:
                 break;
