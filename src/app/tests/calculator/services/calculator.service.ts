@@ -1,59 +1,59 @@
-export class CalculatorService {
-    private value = '0';
-    private result = 0;
-    private sign: string;
-    private isEquals = false;
+// export class CalculatorService {
+//     private value = '0';
+//     private result = 0;
+//     private sign: string;
+//     private isEquals = false;
 
-    public getValue(): string {
-        return this.value;
-    }
+//     public getValue(): string {
+//         return this.value;
+//     }
 
-    public takeNum(value: string): void {
-        if (this.isEquals) {
-            this.value = '0';
-            this.isEquals = false;
-        }
-        if (value === '.') {
-          this.value += value;
-        } else {
-          (this.value === '0') ? this.value = value : this.value += value;
-        }
-    }
+//     public takeNum(value: string): void {
+//         if (this.isEquals) {
+//             this.value = '0';
+//             this.isEquals = false;
+//         }
+//         if (value === '.') {
+//           this.value += value;
+//         } else {
+//           (this.value === '0') ? this.value = value : this.value += value;
+//         }
+//     }
 
-    public takeSign(value: string): void {
-        if (value === '=') {
-            if (this.sign !== '=') { this.calculating(this.sign); }
-            this.isEquals = true;
-        } else {
-            (this.sign) ? this.calculating(this.sign) : this.result = parseFloat(this.value);
-            this.value = '0';
-        }
-        this.sign = value;
-    }
+//     public takeSign(value: string): void {
+//         if (value === '=') {
+//             if (this.sign !== '=') { this.calculating(this.sign); }
+//             this.isEquals = true;
+//         } else {
+//             (this.sign) ? this.calculating(this.sign) : this.result = parseFloat(this.value);
+//             this.value = '0';
+//         }
+//         this.sign = value;
+//     }
 
-    private calculating(sign: string): void {
-        switch (sign) {
-          case '+':
-            this.result += parseFloat(this.value);
-            break;
-          case '-':
-            this.result -= parseFloat(this.value);
-            break;
-          case '*':
-            this.result *= parseFloat(this.value);
-            break;
-          case '/':
-            this.result /= parseFloat(this.value);
-            break;
-          default:
-            this.result = parseFloat(this.value);
-            break;
-        }
-        this.value = this.result.toString();
-    }
-}
+//     private calculating(sign: string): void {
+//         switch (sign) {
+//           case '+':
+//             this.result += parseFloat(this.value);
+//             break;
+//           case '-':
+//             this.result -= parseFloat(this.value);
+//             break;
+//           case '*':
+//             this.result *= parseFloat(this.value);
+//             break;
+//           case '/':
+//             this.result /= parseFloat(this.value);
+//             break;
+//           default:
+//             this.result = parseFloat(this.value);
+//             break;
+//         }
+//         this.value = this.result.toString();
+//     }
+// }
 
-/**
+
 import { BehaviorSubject } from 'rxjs';
 
 export class CalculatorService {
@@ -65,7 +65,7 @@ export class CalculatorService {
     public obsValue: BehaviorSubject<string> = new BehaviorSubject(this.value);
 
     public getValue(): string {
-        return this.value;
+        return this.obsValue.getValue();
     }
 
     public takeNum(value: string): void {
@@ -79,7 +79,9 @@ export class CalculatorService {
 
     public takeSign(value: string): void {
         if (value === '=') {
-            if (this.sign !== '=') { this.calculating(this.sign); }
+            if (this.sign !== '=') {
+                this.calculating(this.sign);
+            }
             this.isEquals = true;
         } else {
             (this.sign) ? this.calculating(this.sign) : this.result = parseFloat(this.value);
@@ -89,8 +91,8 @@ export class CalculatorService {
     }
 
     private changeValue(value: string) {
-      this.obsValue.next(value);
-      this.value = value;
+        this.obsValue.next(value);
+        this.value = value;
     }
 
     private calculating(sign: string): void {
@@ -114,4 +116,4 @@ export class CalculatorService {
         this.changeValue(this.result.toString());
     }
 }
- */
+

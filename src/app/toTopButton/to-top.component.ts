@@ -25,7 +25,7 @@ import { Component } from '@angular/core';
     }
     `]
 })
-export class ToTopComponent {
+export class ToTopButtonComponent {
     onClick(): void {
         window.scrollTo({top: 0, behavior: 'smooth'});
     }

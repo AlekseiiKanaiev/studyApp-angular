@@ -5,7 +5,7 @@ import { DirectivesModule } from './directives/directives.module';
 import { ServicesModule } from './sevices/services.module';
 import { MyFormsModule } from './forms/forms.module';
 import { HTTPModule } from './http/http.module';
-import { RoutingsModule } from './/routings/routing.model';
+import { RoutingsModule } from './routings/routing.model';
 
 @NgModule({
     imports: [

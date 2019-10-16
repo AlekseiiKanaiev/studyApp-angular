@@ -9,9 +9,10 @@ export class BindingsComponent {
     name = 'Alex';
     count = 0;
 
-    increase(): void {
+    increase(event): void {
         this.count++;
         console.log(`clicks ${this.count}`);
+        if (event) { console.log(event); }
     }
 
 }

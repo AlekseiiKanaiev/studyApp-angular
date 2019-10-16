@@ -1,4 +1,4 @@
 import { createStore } from 'redux';
-import reduser from './dispatcher';
+import dispatcher from './dispatcher';
 
-export default createStore(reduser);
+export default createStore(dispatcher);
