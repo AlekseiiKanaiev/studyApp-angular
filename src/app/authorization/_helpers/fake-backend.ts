@@ -137,9 +137,10 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                         return throwError({status: 401, error: {message: 'Unauthorized'}});
                     }
                 }
-
+                console.log('pass');
                 // pass throught all requests not handle above
                 return next.handle(requests);
+                // return requests;
             })
         )
 
