@@ -10,16 +10,21 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 export class ListOfBooksComponent implements OnInit {
     @Input() bookList: string[];
     private modalRef: BsModalRef;
+    private startIndex = 0;
+    private endIndex = 5;
+    private isMore = true;
 
     constructor(private modalServ: BsModalService) {}
 
     ngOnInit() {
-        // this.bookServ.getBooks().subscribe(
-        //     (res) => this.booklist = res
-        // );
     }
 
     openModal(template: TemplateRef<any>) {
         this.modalRef = this.modalServ.show(template);
-      }
+    }
+
+    viewMore() {
+        this.endIndex += 5;
+        this.isMore = this.bookList.length > this.endIndex;
+    }
 }

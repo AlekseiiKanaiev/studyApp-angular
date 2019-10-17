@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
     this.router.events.subscribe(
       () => {
         const url = this.location.path();
-        console.log(url);
+        // console.log(url);
         if (url !== '/register' && url !== '/login') {
           this.isJumbotron = false;
         } else {
@@ -42,7 +42,7 @@ export class AppComponent implements OnInit {
             url !== '' &&
             url !== '/register' &&
             url !== '/login' &&
-            url !== '/myApps') {
+            !/(\/myApps\/\w+)/.test(url)) {
                 this.isButton = true;
         } else {
             this.isButton = false;

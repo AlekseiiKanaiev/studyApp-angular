@@ -20,7 +20,7 @@ export class ContentChildComponent {
      * Само свойство декоратора также представляет объект
      * ElementRef.
      * И далее мы можем манипулировать этим объектом. */
-    @ContentChild('headerContent')
+    @ContentChild('headerContent',  {static: false}) /* TODO: add static flag */
     header: ElementRef;
 
     change() {

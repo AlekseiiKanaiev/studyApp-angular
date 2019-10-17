@@ -18,14 +18,12 @@ export class BookStoreComponent {
                                         .map(el => {
                                             return Object.assign({}, {
                                                 'title': el.title,
-                                                'authors': (el.authors) ? el.authors.join(',') : 'None',
+                                                'authors': (el.authors) ? el.authors.join(', ') : 'None',
                                                 'description': (el.description) ? el.description : 'There is no description',
                                                 'image': (el.imageLinks) ? el.imageLinks.smallThumbnail : 'There is no image',
                                                 'price': (res.items.saleInfo) ? res.items.saleInfo.listPrice.amount : 'None'
                                             });
                                         });
-                console.log(res.items.saleInfo);
-                console.log(this.bookList);
             }
         );
     }
