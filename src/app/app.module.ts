@@ -19,7 +19,7 @@ import { calculatorComponents } from './tests/calculator/components/calculator.m
 import { ToTopButtonComponent } from './toTopButton/to-top.component';
 import { HomeComponent } from './home/home.component';
 import { GoHomeButtonComponent } from './goHomeButton/goHome.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AlertComponent } from './authorization/_directives/alert.component';
 import { GoBackButtonComponent } from './goBackButton/goBack.component';
 
@@ -28,7 +28,7 @@ import { GetDataFromAnotherServerService } from './tests/_services/getDataFromAn
 @NgModule({
   declarations: [
     appRoutingComponents,
-    BrowserAnimationsModule,
+    // BrowserAnimationsModule,
     Test1Component,
     calculatorComponents,
     ToTopButtonComponent,
