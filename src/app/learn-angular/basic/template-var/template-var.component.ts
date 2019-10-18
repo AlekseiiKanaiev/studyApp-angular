@@ -16,7 +16,7 @@ export class TemplateVariablesComponent {
      * <app-viewchild-comp></app-viewchild-comp>.
      * И в этом случае мы уже можем не использовать шаблонные
      * переменные в шаблоне. */
-    @ViewChild(ViewChildComponent)
+    @ViewChild(ViewChildComponent, { static: true })
     private counterComponent: ViewChildComponent;
 
     /**Несмотря на то, что выше мы не использовали переменные,
@@ -31,7 +31,7 @@ export class TemplateVariablesComponent {
      * Причем свойство nameParagraph представляет тип
      * ElementRef, который используется для ссылки на
      * элементы html. */
-    @ViewChild('textName')
+    @ViewChild('textName', { static: true })
     nameParagraph: ElementRef;
     /**По нажатию на кнопку выводится и изменяется текстовое
      * содержимое этой переменной. */

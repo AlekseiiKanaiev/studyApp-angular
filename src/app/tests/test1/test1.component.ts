@@ -14,7 +14,7 @@ export class Test1Component implements OnInit {
     winScroll = window.scrollX;
     winToTop = window.screen.availHeight;
 
-    someData: Video[];
+    someData: any;
 
     constructor(private getDataService: GetDataFromAnotherServerService) {}
 
@@ -22,7 +22,7 @@ export class Test1Component implements OnInit {
         this.getDataService.getData().subscribe(
             data => {
                 console.log(data);
-                this.someData = data.title;
+                this.someData = data;
             }
         );
     }
