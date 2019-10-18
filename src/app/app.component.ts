@@ -32,6 +32,7 @@ export class AppComponent implements OnInit {
     this.router.events.subscribe(
       () => {
         const url = this.location.path();
+        // console.log(url);
         if (url !== '/register' && url !== '/login') {
           this.isJumbotron = false;
         } else {
@@ -41,12 +42,13 @@ export class AppComponent implements OnInit {
             url !== '' &&
             url !== '/register' &&
             url !== '/login' &&
-            url !== '/myApps') {
+            !/(\/myApps\/\w+)/.test(url)) {
                 this.isButton = true;
         } else {
             this.isButton = false;
         }
-        if (url === '/myApps/calculator') {
+        // if (url === '/myApps/calculator') {
+        if (/(\/myApps\/\w+)/.test(url)) {
             this.isCenterContent = true;
         } else {
             this.isCenterContent = false;
