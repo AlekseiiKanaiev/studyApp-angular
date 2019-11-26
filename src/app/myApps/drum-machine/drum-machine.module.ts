@@ -11,7 +11,10 @@ import { PowerSwitchComponent } from './components/controls/power-switch/power-s
 import { DrumPadsComponent } from './components/drum-pads/drum-pads.component';
 import { PadComponent } from './components/drum-pads/pad/pad.component';
 
-
+import { StateService } from './_services/state.service';
+import { SetDataService } from './_services/setData.service';
+import { DisplayService } from './_services/display.service';
+import { PlaySoundService } from './_services/playSound.service';
 
 const drumMachineRoutes: Routes = [
     {path: 'myApps/drum-machine', component: DrumMachineComponent}
@@ -36,6 +39,13 @@ const drumMachineRoutes: Routes = [
 
     exports: [
         RouterModule
+    ],
+
+    providers: [
+        StateService,
+        SetDataService,
+        DisplayService,
+        PlaySoundService
     ]
 })
 export class DrumMachineModule {}

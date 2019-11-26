@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { MyAppsComponent } from './myApps.component';
 import { CalculatorModule } from './calculator/calculator.module';
 import { BookStoreModule } from './bookStore/bookStore.module';
+import { DrumMachineModule } from './drum-machine/drum-machine.module';
 
 const myAppsRoutes: Routes = [
     {path: 'myApps', component: MyAppsComponent}
@@ -15,7 +16,8 @@ const myAppsRoutes: Routes = [
         CommonModule,
         RouterModule.forRoot(myAppsRoutes),
         CalculatorModule,
-        BookStoreModule
+        BookStoreModule,
+        DrumMachineModule
     ],
     declarations: [
         MyAppsComponent

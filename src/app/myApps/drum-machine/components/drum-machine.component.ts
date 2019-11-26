@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./drum-machine.component.css']
 })
 export class DrumMachineComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit() {
