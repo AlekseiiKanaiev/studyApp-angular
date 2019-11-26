@@ -8,7 +8,12 @@ import { AlertService } from '../_services/alertService.service';
 
 @Component({
     selector: 'app-auth-alert',
-    templateUrl: './alert.component.html'
+    templateUrl: './alert.component.html',
+    styles: [`#alert{
+        width: fit-content;
+        text-align: center;
+        margin: auto;
+    }`]
 })
 export class AlertComponent implements OnInit, OnDestroy {
     private subs: Subscription;
