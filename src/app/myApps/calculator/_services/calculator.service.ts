@@ -76,7 +76,7 @@ export class CalculatorService {
                 this.sign = value;
                 this.isEnd = false;
                 this.isEquals = true;
-                this.changeValue((Math.round(this.result * 1e6) / 1e6).toString());
+                this.changeValue((+this.result.toFixed(10)).toString());
                 break;
             case '+':
             case '-':
