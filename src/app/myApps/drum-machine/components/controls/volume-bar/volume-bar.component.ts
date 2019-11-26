@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, DoCheck, AfterViewChecked } from '@angular/core';
 import { StateService } from '../../../_services/state.service';
 import { DisplayService } from '../../../_services/display.service';
 
@@ -7,16 +7,25 @@ import { DisplayService } from '../../../_services/display.service';
   templateUrl: './volume-bar.component.html',
   styleUrls: ['./volume-bar.component.css']
 })
-export class VolumeBarComponent implements OnInit {
+export class VolumeBarComponent implements OnInit, AfterViewChecked {
   private isPower = true;
   private soundVolume = 0.3;
+  @ViewChild('volume', {static: false}) volume: ElementRef;
 
   constructor(private stateServ: StateService, private displayServ: DisplayService) { }
 
   ngOnInit() {
     this.stateServ.obsPower.subscribe(
-      (value) => this.isPower = value
+      (value) => {
+        this.isPower = value;
+      }
     );
+  }
+
+  ngAfterViewChecked(): void {
+    (this.isPower) ?
+      this.volume.nativeElement.removeAttribute('disabled', 'disabled') :
+      this.volume.nativeElement.setAttribute('disabled', 'disabled');
   }
 
   onClick(e) {
