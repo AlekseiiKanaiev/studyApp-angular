@@ -4,7 +4,7 @@ import { StateService } from './state.service';
 
 @Injectable()
 export class DisplayService {
-    private timer: NodeJS.Timer;
+    private timer;
     private isPower = true;
     public obsMessage: Subject<string> = new Subject<string>();
 
