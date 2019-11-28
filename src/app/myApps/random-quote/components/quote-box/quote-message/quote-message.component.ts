@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Quote } from '../../../_models/qoute';
 
 @Component({
   selector: 'app-random-quote-message',
@@ -6,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./quote-message.component.css']
 })
 export class QuoteMessageComponent implements OnInit {
-
+  @Input() randomQuote: Quote;
+  private quoteIcon;
   constructor() { }
 
   ngOnInit() {
   }
-
 }

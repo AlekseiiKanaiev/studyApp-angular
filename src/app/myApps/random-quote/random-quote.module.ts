@@ -2,18 +2,19 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { RandomQuoteComponent } from './components/random-quote.component';
-import { QouteBoxComponent } from './components/qoute-box/qoute-box.component';
-import { QuoteMessageComponent } from './components/qoute-box/quote-message/quote-message.component';
-import { ButtonsComponent } from './components/qoute-box/buttons/buttons.component';
+import { QouteBoxComponent } from './components/quote-box/quote-box.component';
+import { QuoteMessageComponent } from './components/quote-box/quote-message/quote-message.component';
+import { ButtonsComponent } from './components/quote-box/buttons/buttons.component';
+import { GetQuoteService } from './_services/getQuote.service';
 
-const randomQouteRoutes: Routes = [
+const randomQuoteRoutes: Routes = [
     {path: 'myApps/random-qoute', component: RandomQuoteComponent}
 ];
 
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule.forRoot(randomQouteRoutes)
+        RouterModule.forRoot(randomQuoteRoutes)
     ],
     declarations: [
         RandomQuoteComponent,
@@ -22,7 +23,7 @@ const randomQouteRoutes: Routes = [
         ButtonsComponent
     ],
     providers: [
-
+        GetQuoteService
     ],
     exports: [
         RouterModule

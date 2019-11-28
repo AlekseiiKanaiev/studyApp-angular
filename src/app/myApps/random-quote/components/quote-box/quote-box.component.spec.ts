@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { QouteBoxComponent } from './qoute-box.component';
+import { QouteBoxComponent } from './quote-box.component';
 
 describe('QouteBoxComponent', () => {
   let component: QouteBoxComponent;

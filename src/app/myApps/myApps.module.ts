@@ -6,7 +6,7 @@ import { MyAppsComponent } from './myApps.component';
 import { CalculatorModule } from './calculator/calculator.module';
 import { BookStoreModule } from './bookStore/bookStore.module';
 import { DrumMachineModule } from './drum-machine/drum-machine.module';
-import { RandomQuoteModule } from './random-qoute/random-qoute.module';
+import { RandomQuoteModule } from './random-quote/random-quote.module';
 
 const myAppsRoutes: Routes = [
     {path: 'myApps', component: MyAppsComponent}
