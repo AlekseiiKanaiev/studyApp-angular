@@ -6,6 +6,7 @@ import { ComponentsComponent } from './basic-components/components.component';
 import { BindingsComponent } from './bindings/bindings.component';
 import { LifeCycleComponent } from './lifecycle/lifecycle.component';
 import { TemplateVariablesComponent } from './template-var/template-var.component';
+import { AuthGuard } from 'src/app/authorization/_guards/auth.guard';
 
 const basicChildrenRoutes: Routes = [
     {path: 'components', component: ComponentsComponent},
@@ -15,7 +16,7 @@ const basicChildrenRoutes: Routes = [
 ];
 
 const basicRoutes: Routes = [
-    {path: 'basic', component: BasicMainComponent, children: basicChildrenRoutes},
+    {path: 'basic', component: BasicMainComponent, children: basicChildrenRoutes,  canActivate: [AuthGuard]},
 ];
 
 @NgModule({

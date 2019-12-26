@@ -10,7 +10,6 @@ import { NgModule } from '@angular/core';
 // импортируются созданные компоненты, сервисы, модули.
 import { LearnAngularModule } from './learn-angular/learn-angular.module';
 import { AuthorizationModule } from './authorization/authorization.module';
-import { MyAppsModule } from './myApps/myApps.module';
 
 import { AppRouteModule, appRoutingComponents } from './app.router.module';
 import { AppComponent } from './app.component';
@@ -42,7 +41,6 @@ import { GetDataFromAnotherServerService } from './tests/_services/getDataFromAn
     AppRouteModule,
     LearnAngularModule,
     AuthorizationModule,
-    MyAppsModule
   ],
   providers: [
     GetDataFromAnotherServerService
